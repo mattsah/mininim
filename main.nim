@@ -1,11 +1,11 @@
+{. warning[UnusedImport]:off .}
+
 import
-    mininim/loader,
     mininim/dic,
-    mininim/cli
+    mininim/loader
 
-var app: App = App.init(loader.config)
-var console: Console = app.get(Console)
+loader.scan("./local")
 
-console.run()
+var app = App.init(config)
 
-quit 0
+quit(0)
