@@ -117,35 +117,62 @@ The loader provides the `scan()` macro which rescursively scans your application
 loader.scan('./local')
 ```
 
-Scans literally all files in `local` and imports them.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Scans literally all files in `local` and imports them.  This causes various Shapes/Facets to be registered int the config.
 
 ```nim
-{. warning[UnusedImport]:off .}
+var app = App.init(config)
+```
 
+Creates our new application instance.  We'll spare you the `quit(0)` line.  Needless to say, that should be replaced with your actual application functionality.  Let's then take a look at how we can start building such functionality in a modular way.
+
+First off, we'll run:
+
+```bash
+nimble add mininim_cli
+```
+
+In theory, this should download/install the library and add it to our dependencies in our `app.nimble` file.  Putting aside `nimble sync` which seems to be necessary to get half-way functional LSP support, let's add taht to our import statements in the application's `main.nim`:
+
+```
 import
-    mininim/dic,
     mininim/cli,
+    mininim/dic,
     mininim/loader
+```
 
-loader.scan("./local")
+> Note: You should always make sure to import packaged modules prior to the `mininum/loader`.  Such modules can often register "meta-shapes" (shapes of facets) which define default hooks and other values.
 
+Let's now modify our `main.nim` to use the console.  Keeping in mind, we'll still want to scan our application's source directory before this:
+
+```nim
 var app = App.init(config)
 var console = app.get(Console)
 
 quit(console.run())
+```
+
+Now our Minimim application is ready to use the console module.  We can now create a local class and corresponding Shape with the `Command` Facet in something like `local/commands/Entry.nim`:
+
+```nim
+class Entry:
+    var
+        app: App
+
+    method init*(app: var App): void =
+        this.app = app
+
+    method execute*(): int =
+        # Do things
+        result = 0
+
+shape Entry: @[
+    Delegate(
+        builder: proc(app: var App): Entry =
+            result = Entry.init(app)
+    ),
+    Command(
+        name: "",
+        description: "Entry command that does things by default"
+    )
+]
 ```
