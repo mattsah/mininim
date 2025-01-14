@@ -8,7 +8,12 @@ With that all said.  Let's cover some basic concepts.
 
 ## HEADS UP
 
-None of this really exists yet.  This is a project i'm working on.  Don't expect to be able to follow any of the instructions.  There's a lot still in play.  But this is the basic concept.
+None of this really exists yet.  This is a project i'm working on.  Don't expect to be able to follow any of the instructions.  There's a lot still in play.  But this is the basic concept.  Here's a basic roadmap:
+
+- [x] Implement application template (see: you're looking at it)
+- [x] Implement general architecture, DIC, delegate (see https://github.com/mattsah/mininim-core)
+- [ ] Implement CLI functionality (see: https://github.com/mattsah/mininim-cli)
+- [ ] Implement web/rout functionality with Prologue
 
 ## Architecture
 
