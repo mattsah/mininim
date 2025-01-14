@@ -6,6 +6,10 @@ The way this all works is probably some sort of violation of the "Nim way."  I d
 
 With that all said.  Let's cover some basic concepts.
 
+## HEADS UP
+
+None of this really exists yet.  This is a project i'm working on.  Don't expect to be able to follow any of the instructions.  There's a lot still in play.  But this is the basic concept.
+
 ## Architecture
 
 Mininim borrows from object oriented programming with a heavy reliance on dependency injection. While an _ultimate_ goal would be to have some sort of auto-wired dependency injection, this is not in the cards without the introduction of far more comprehensive meta-programming.  This is because, as you have probably noted if you came from the OOP world, "classes" don't really exist as a concept in Nim.  And while there's some argument that "classes" don't really exist anywhere and we're all just passing structs as first parameters, there are a few critical differences from more dynamic OOP oriented programming language:
