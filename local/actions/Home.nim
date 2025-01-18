@@ -14,8 +14,8 @@ class Home:
         echo "Hello Mininim!"
         result = 0
 
-    method setConsole*(): void =
-        discard
+    method setConsole*(console: var Console): void =
+        this.console = console
 
 shape Home: @[
     Command(
