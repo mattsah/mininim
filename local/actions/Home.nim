@@ -15,7 +15,7 @@ begin Home:
     method invoke*(): Response {. base .} =
         result = (
             status: 0,
-            headers: @[],
+            headers: emptyHttpHeaders(),
             stream: newStringStream("Hello Mininim!")
         )
 
