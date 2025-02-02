@@ -16,7 +16,7 @@ begin Home:
         result = (
             status: 0,
             headers: emptyHttpHeaders(),
-            stream: newStringStream("Hello Mininim!")
+            stream: newStringStream("Hello Mininim!").Stream
         )
 
 shape Home: @[
