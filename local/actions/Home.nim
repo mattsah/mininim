@@ -1,25 +1,31 @@
 import
     mininim,
-    mininim/cli
+    mininim/cli,
+    mininim/web,
+    mininim/web/router
 
+type
+    Home = ref object of Class
 
-#[
-    A simple contrived "action" example.
-]#
-class Home:
-    var
-        console: Console
-
-    method execute*(app: var App): int =
+begin Home:
+    method execute*(console: Console): int {. base .} =
         echo "Hello Mininim!"
         result = 0
 
-    method setConsole*(console: var Console): void =
-        this.console = console
+    method invoke*(): Response {. base .} =
+        result = (
+            status: 0,
+            headers: @[],
+            stream: newStringStream("Hello Mininim!")
+        )
 
 shape Home: @[
     Command(
         name: "welcome",
-        description: "Welcome Message"
+        description: "Show the welcome message"
+    ),
+    Route(
+        path: "/",
+        methods: @[HttpGet]
     )
 ]

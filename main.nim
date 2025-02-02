@@ -1,13 +1,18 @@
 {. warning[UnusedImport]:off .}
 
 import
+    dotenv,
+    mininim/loader,
     mininim/dic,
     mininim/cli,
-    mininim/loader
+    mininim/web,
+    mininim/web/router
 
+dotenv.load()
 loader.scan("./local")
 
-var app = App.init(config)
-var console = app.get(Console)
+var
+    app = App.init(config)
+    console = app.get(Console)
 
 quit(console.run())
