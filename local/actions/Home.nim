@@ -13,11 +13,7 @@ begin Home:
         result = 0
 
     method invoke*(): Response {. base .} =
-        result = (
-            status: 0,
-            headers: emptyHttpHeaders(),
-            stream: newStringStream("Hello Mininim!").Stream
-        )
+        result = Response(stream: newStringStream("Hello Mininim"))
 
 shape Home: @[
     Command(
