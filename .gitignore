@@ -1,4 +1,6 @@
 nimble.paths
 nimble.lock
-.env
 nimble.develop
+nimbledeps
+vendor
+.env

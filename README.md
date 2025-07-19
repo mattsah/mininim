@@ -37,3 +37,11 @@ nimble setup
 nimble build
 ```
 
+To work on related packages:
+
+```
+nimble develop https://github.com/mattsah/mininim-core
+nimble develop https://github.com/mattsah/mininim-cli
+nimble develop https://github.com/mattsah/mininim-web
+nimble develop
+```
