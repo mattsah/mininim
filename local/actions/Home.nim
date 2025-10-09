@@ -1,9 +1,10 @@
 import
     mininim,
-    mininim/cli
+    mininim/cli,
+    mininim/web/router
 
 type
-    Home = ref object of Class
+    Home = ref object of Action
 
 begin Home:
     method execute*(console: Console): int {. base .} =
@@ -17,7 +18,16 @@ begin Home:
 
         result = 0
 
+    method invoke*(): Response =
+        result = Response(status: HttpCode(500), stream: newStringStream(
+            this.request.headers["user-agent"]
+        ))
+
 shape Home: @[
+    Route(
+        path: "/[{name:string}]",
+        methods: @[HttpGet]
+    ),
     Command(
         name: "welcome",
         description: "Show the welcome message",

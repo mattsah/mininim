@@ -4,9 +4,7 @@ import
     dotenv,
     mininim/loader,
     mininim/dic,
-    mininim/cli,
-    mininim/web,
-    mininim/web/router
+    mininim/cli
 
 dotenv.load()
 loader.scan("./local")
