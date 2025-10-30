@@ -8,24 +8,28 @@ type
 
 begin Home:
     method execute*(console: Console): int {. base .} =
+        let name = console.getArg("name", "Friend")
+
         case console.getOpt("l", "language"):
-            of "en":
-                echo fmt """Hello {console.getArg("name")}!"""
             of "es":
-                echo fmt """Hola {console.getArg("name")}!"""
+                echo fmt """Hola {name}!"""
+            of "en":
+                echo fmt """Hello {name}!"""
             of "fr":
-                echo fmt """Bonjour {console.getArg("name")}!"""
+                echo fmt """Bonjour {name}!"""
 
         result = 0
 
     method invoke*(): Response =
-        result = Response(status: HttpCode(500), stream: newStringStream(
-            this.request.headers["user-agent"]
+        let name = this.request.get("name", "Friend");
+
+        result = Response(status: HttpCode(200), stream: newStringStream(
+            fmt "Hello {name}"
         ))
 
 shape Home: @[
     Route(
-        path: "/[{name:string}]",
+        path: "/{name:.*}",
         methods: @[HttpGet]
     ),
     Command(
@@ -34,7 +38,7 @@ shape Home: @[
         args: @[
             Arg(
                 name: "name",
-                require: true,
+                require: false,
                 description: "The name of the person to say hello to"
             )
         ],
