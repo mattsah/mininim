@@ -1,16 +1,15 @@
-{. warning[UnusedImport]:off .}
-
 import
     dotenv,
     mininim/loader,
-    mininim/dic,
     mininim/cli
 
-dotenv.load()
+if os.fileExists(".env"):
+    dotenv.load()
+
 loader.scan("./local")
 
 var
-    app = App.init(config)
+    app = App.build()
     console = app.get(Console)
 
 quit(console.run())

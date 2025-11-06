@@ -1,3 +1,4 @@
+*.zst
 nimble.paths
 nimble.lock
 nimble.develop

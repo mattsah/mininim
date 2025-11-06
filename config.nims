@@ -1,4 +1,5 @@
---gc:orc
+--mm:atomicArc
+--deepcopy:on
 --threads:on
 --path:"./local"
 --path:"./"
