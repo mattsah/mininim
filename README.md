@@ -156,19 +156,19 @@ While the remainder of this section will show various code snippets as separate 
 ```nim
 type
     ...
-    
+
 begin [type]:
     ...
-    
+
 shape [type]:
     ...
-    
+
 begin [type]:
     ...
-    
+
 shape [type]:
     ...
-    
+
 ...
 ```
 
@@ -192,7 +192,7 @@ You can define a constructor for your class by adding an `init` method to the `b
 begin Animal:
     method init*(noise: string): void {. base .} =
         this.noise = noise
-        
+
     method speak*(message: string): string {. base .} =
         result = fmt "{message}, {this.noise}!"
 ```
@@ -222,7 +222,7 @@ begin Dog:
         this.name = name
         this.age  = age
         super.init("woof")
-        
+
     method speak*(message: string): string =
         result = fmt "{this.name}: {super.speak(message)}"
 ```
@@ -268,9 +268,9 @@ nimble setup
 To work on related packages:
 
 ```
-nimble develop git@github.com:mattsah/mininim-core.git
-nimble develop git@github.com:mattsah/mininim-cli.git
-nimble develop git@github.com:mattsah/mininim-web.git
+nimble develop https://github.com/mattsah/mininim-core.git
+nimble develop https://github.com/mattsah/mininim-cli.git
+nimble develop https://github.com/mattsah/mininim-web.git
 nimble develop
 ```
 
