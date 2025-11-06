@@ -274,6 +274,7 @@ To work on related packages:
 nimble develop git@github.com:mattsah/mininim-core.git
 nimble develop git@github.com:mattsah/mininim-cli.git
 nimble develop git@github.com:mattsah/mininim-web.git
+nimble develop
 ```
 
 Build
