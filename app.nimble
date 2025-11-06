@@ -13,9 +13,9 @@ namedBin      = {"app": "app"}.toTable
 
 requires "nim >= 2.2.0"
 requires "dotenv >= 2.0.0"
-requires "mininim_core >= 0.1.0"
-requires "mininim_cli >= 0.1.0"
-requires "mininim_web >= 0.1.0"
+requires "https://github.com/mattsah/mininim-core.git"
+requires "https://github.com/mattsah/mininim-cli.git"
+requires "https://github.com/mattsah/mininim-web.git"
 
 # Tasks
 
