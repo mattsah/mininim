@@ -262,9 +262,6 @@ cd mininim
 Install dependencies:
 
 ```
-nimble install https://github.com/mattsah/mininim-core.git
-nimble install https://github.com/mattsah/mininim-cli.git
-nimble install https://github.com/mattsah/mininim-web.git
 nimble setup
 ```
 
