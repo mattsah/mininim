@@ -122,6 +122,7 @@ By providing these core features, Mininim already covers many use cases with its
 ```nim
 import
     dotenv,
+    mininim/dic,
     mininim/loader,
     mininim/cli
 
@@ -131,7 +132,7 @@ if os.fileExists(".env"):
 loader.scan("./local")
 
 var
-    app = App.build()
+    app = App.init()
     console = app.get(Console)
 
 quit(console.run())
