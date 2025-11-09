@@ -1,7 +1,7 @@
 import
     dotenv,
-    mininim/dic,
     mininim/loader,
+    mininim/dic,
     mininim/cli
 
 if os.fileExists(".env"):

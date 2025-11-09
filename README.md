@@ -122,8 +122,8 @@ By providing these core features, Mininim already covers many use cases with its
 ```nim
 import
     dotenv,
-    mininim/dic,
     mininim/loader,
+    mininim/dic,
     mininim/cli
 
 if os.fileExists(".env"):
