@@ -1,5 +1,6 @@
 import
     dotenv,
+    mininim/dic,
     mininim/loader,
     mininim/cli
 
@@ -9,7 +10,7 @@ if os.fileExists(".env"):
 loader.scan("./local")
 
 var
-    app = App.build()
+    app = App.init()
     console = app.get(Console)
 
 quit(console.run())

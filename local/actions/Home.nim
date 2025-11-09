@@ -4,7 +4,7 @@ import
     mininim/web/router
 
 type
-    Home = ref object of Action
+    Home* = ref object of Action
 
 begin Home:
     method execute*(console: Console): int {. base .} =
