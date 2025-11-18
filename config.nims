@@ -1,4 +1,4 @@
---mm:atomicArc
+--mm:atomicArc # Still required or mummy blows up
 --deepcopy:on
 --threads:on
 --path:"./local"
