@@ -20,7 +20,7 @@ requires "https://github.com/mattsah/mininim-web.git"
 # Tasks
 
 task build_dev, "Build the development version with debug and what not":
-    exec "nimble build --debugInfo --linetrace:on --stacktrace:on --checks:on --d:debug --verbose"
+    exec "nimble build --linetrace:on --stacktrace:on --checks:on --d:debug --verbose"
 
 task build_prod, "Build the production version with optimization":
     exec "nimble build --opt:speed --passC:-flto --passL:-flto --d:release --verbose"
