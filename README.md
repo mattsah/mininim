@@ -6,11 +6,11 @@ Mininim (like: minimum, but with "nim") is a general purpose framework for the N
 - Modularity and extensibility via a novel "plugin" approach.
 - Rapid development with terse, but readable, code
 
-> **NOTE:** All code is currently alpha state and is not published through official channels.  If you want to test Mininim or help development, see the [development section](#development)
+> **NOTE:** All code is currently alpha state and is not published through official package channels.  If you want to test Mininim or help development, see the [development section](#development)
 
 ## Introduction
 
-Mininim works by defining classes and decorating them with what we call "**facets**."  One or more facets comprises the "**shape**" of the class and, in turn, argument its behaviors and features within your overall application.
+Mininim works by defining classes and decorating them with what we call "**facets**."  One or more facets comprises the "**shape**" of the class and, in turn, augments its behaviors and features within your overall application.
 
 Put more simply, you can think of the shape and facets as a configuration for the class which defines how it can be used by the system or other parts of the system.
 
@@ -23,7 +23,7 @@ Route(
 )
 ```
 
-As you can probably guess, this facet indicates that the class it's added to is capable of serving and an HTTP Get request made to a URL matching the pattern specified in its `path` property.
+As you can probably guess, this facet indicates that the class it's added to is capable of serving an HTTP Get request made to a URL matching the pattern specified in its `path` property.
 
 Let's take a look at how this sits in the context of our `local/actions/Home.nim` file (in this example repository) to get a better understanding:
 
