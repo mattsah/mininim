@@ -1,7 +1,8 @@
 import
     mininim,
     mininim/cli,
-    mininim/web/router
+    mininim/web/router,
+    mininim/xmltemplates
 
 type
     Home* = ref object of Action
@@ -23,9 +24,7 @@ begin Home:
     method invoke*(): Response =
         let name = this.request.get("name", "Friend");
 
-        result = Response(status: HttpCode(200), stream: newStringStream(
-            fmt "Hello {name}"
-        ))
+        result = this.html("resources/pages/home.html", (name: name))
 
 shape Home: @[
     Route(
