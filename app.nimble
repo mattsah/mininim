@@ -23,4 +23,4 @@ task build_dev, "Build the development version with debug and what not":
     exec "nimble build --linetrace:on --stacktrace:on --checks:on --d:debug --verbose"
 
 task build_prod, "Build the production version with optimization":
-    exec "nimble build --opt:speed --passC:-flto --passL:-flto --d:release --verbose"
+    exec "nimble build --opt:speed --d:release --verbose"
