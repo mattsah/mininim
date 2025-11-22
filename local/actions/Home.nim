@@ -22,7 +22,7 @@ begin Home:
         result = 0
 
     method invoke*(): Response =
-        let name = this.request.get("name", "Friend");
+        let name = this.get("name", "Friend");
 
         result = this.html("resources/pages/home.html", (name: name))
 
