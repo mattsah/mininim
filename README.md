@@ -278,7 +278,7 @@ nimble develop
 Build
 
 ```
-nimble build_dev
+nimble testing
 ```
 
 Run
