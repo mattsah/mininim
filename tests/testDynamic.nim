@@ -1,6 +1,6 @@
-import unittest
-import std/json
-import mininim/dynamic
+import
+    unittest,
+    mininim/dynamic
 
 suite "dynamic":
     test "can do literal assignments (:=)":
@@ -35,3 +35,8 @@ suite "dynamic":
         var g: dyn = true
         var h: dyn = false
         var i: dyn = nil # kinda works, ref is actually nil, need to handle explicitly
+
+    test "equality and inequality":
+        check(~1 == ~1)
+        check(~1 == ~1.5)
+        check(~1 != ~2.0)
