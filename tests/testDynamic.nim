@@ -105,3 +105,13 @@ suite "dynamic":
         check(~(-125).len == ~(-3))
         check(~3.14159.len == ~1.5)
         check(~(-3.14159).len == ~(-1.5))
+        check(not(~(-3.14159).len == ~(-1.6)))
+
+    test "can do weird function [has()]":
+        check((~[1, 2, "test"]).has("test") == true)
+        check((~[1, 2, "test"]).has(3) == false)
+        check((~(name: "Bob")).has("name") == true)
+        check((~(name: nil)).has("name") == false)
+        check((~(name: 0)).has("name") == true)
+        check((~"foobar").has("oba") == true)
+        check((~"foobar").has("e") == false)
