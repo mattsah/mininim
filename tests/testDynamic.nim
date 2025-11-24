@@ -41,6 +41,9 @@ suite "dynamic":
         var i: dyn = nil # kinda works, ref is actually nil, need to handle explicitly
 
     test "can do logical comparisons":
+        check(~0 != ~nil)
+        check(~false != ~nil)
+
         check(~1 == ~1)
         check(~1 != ~2)
         check(~1 == ~1.0)
@@ -73,9 +76,32 @@ suite "dynamic":
         check(~0 < ~true)
 
         check(~"abundance" < ~"bobcat")
+        check(not(~"abundance" > ~"bobcat"))
+
+        check(~"abundance" <= ~"bobcat")
         check(not(~"abundance" >= ~"bobcat"))
-        check(not(~"abundance" >= ~"bobcat"))
+
+        check(~"abundance" != ~"bobcat")
         check(not(~"abundance" == ~"bobcat"))
 
         check(~[1, 2, 3] == ~[1, 2, 3])
         check(~(name: "Suzy", age: 13) == ~(name: "Suzy", age: 13))
+
+    test "can do weird math":
+        check(~1 + ~nil == ~1)
+        check(~nil + ~1 == ~nil)
+
+        check(~1.0 + ~nil == ~1)
+        check(~nil + ~1.0 == ~nil)
+
+        check(~1.5 + ~nil != ~1)
+
+        check(~1 + "test" == ~"1test")
+        check("test" + ~1 == ~"test1")
+
+    test "can do weird function [len()]":
+        check(~1.len == ~1)
+        check(~125.len == ~3)
+        check(~(-125).len == ~(-3))
+        check(~3.14159.len == ~1.5)
+        check(~(-3.14159).len == ~(-1.5))
