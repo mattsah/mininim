@@ -115,3 +115,80 @@ suite "dynamic":
         check((~(name: 0)).has("name") == true)
         check((~"foobar").has("oba") == true)
         check((~"foobar").has("e") == false)
+
+    test "can do array operations and mutations":
+        var arr = ~[1, 2, 3]
+        check(arr[~0] == ~1)
+        check(arr[~1] == ~2)
+        check(arr[~2] == ~3)
+
+        arr[~1] = ~99
+        check(arr[~1] == ~99)
+
+        check(arr.len == ~3)
+
+        let first = << arr
+        check(first == ~1)
+        check(arr.len == ~2)
+        check(arr[~0] == ~99)
+
+        let last = >> arr
+        check(last == ~3)
+        check(arr.len == ~1)
+
+        arr << ~42
+        check(arr.len == ~2)
+        check(arr[~1] == ~42)
+
+    test "can do object operations and mutations":
+        var obj = ~(name: "Alice", age: 30)
+        check(obj.name == ~"Alice")
+        check(obj.age == ~30)
+
+        obj.name = ~"Bob"
+        check(obj.name == ~"Bob")
+
+        obj["city"] = ~"New York"
+        check(obj.city == ~"New York")
+
+        check(obj.has("name") == true)
+        check(obj.has("country") == false)
+
+        obj["age"] = ~nil
+        check(obj.has("age") == false)
+
+    test "can do complex array concatenation":
+        let arr1 = ~[1, 2, 3]
+        let arr2 = ~[4, 5, 6]
+        let combined = arr1 + arr2
+        check(combined.len == 6)
+        check(combined[0] == 1)
+        check(combined[3] == 4)
+        check(combined[5] == 6)
+
+    test "can do array indexing with negative indices":
+        let arr = ~[10, 20, 30, 40]
+        check(arr[-1] == 40)
+        check(arr[-2] == 30)
+        check(arr[-3] == 20)
+        check(arr[-4] == 10)
+
+    test "can do string indexing":
+        let str = ~"hello"
+        check(str[0] == "h")
+        check(str[1] == "e")
+        check(str[4] == "o")
+        check(str[-1] == "o")
+        check(str[-2] == "l")
+
+    test "can handle empty arrays and objects":
+        let emptyArr = ~[]
+        check(emptyArr.len == 0)
+        check(toBool(emptyArr) == false)
+
+        let emptyObj = ~()
+        check(emptyObj.len == 0)
+        check(toBool(emptyObj) == false)
+
+        check(emptyArr + 5 == [5])
+        check(emptyObj.has("any") == false)
