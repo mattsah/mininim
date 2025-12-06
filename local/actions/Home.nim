@@ -4,10 +4,11 @@ import
     mininim/templates
 
 type
-    Home* = ref object of Action
+    Home* = ref object of AbstractAction
 
 begin Home:
     method invoke*(): Response =
+        discard
         let name = this.get("name", "Friend");
 
         result = this.html("resources/pages/home.html", (name: name))

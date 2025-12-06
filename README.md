@@ -39,7 +39,7 @@ import
     mininim/web/router
 
 type
-    Home = ref object of Action
+    Home = ref object of AbstractAction
 
 begin Home:
     method invoke*(): Response =
@@ -62,14 +62,18 @@ Here we can see that by adding the `Route` facet to our `Home` class's shape, we
 ```nim
 shape Route: @[
     Hook(
-        call: proc(router: Router, request: Request): Response {. closure .} =
-            let
-                action = this.app.get(shape)
+        call: RouteHook as (
+            block:
+                let
+                    action = this.app.get(shape)
 
-            action.request = request
-            action.router = router
+                ...
 
-            result = action.invoke()
+                action.request = request
+                action.router = router
+
+                result = action.invoke()
+        )
     )
 ]
 ```
@@ -91,13 +95,15 @@ import
 shape Router: @[
     Shared(),
     Delegate(
-        call: proc(): shape {. closure .} =
-            result = shape.init()
+        call: DelegateHook as (
+            block:
+                result = shape.init()
 
-            for route in this.app.config.findAll(Route):
-                result.add(route)
+                for route in this.app.config.findAll(Route):
+                    result.add(route)
 
-			...
+                ...
+        )
     ),
     ...
 ]
