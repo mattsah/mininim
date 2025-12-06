@@ -4,13 +4,13 @@ import
     mininim/templates,
     unittest
 
-suite "xml-templates":
+suite "templates":
     test "parse and render":
         var
             app = App.init()
-            engine = app.get(XmlEngine)
+            engine = app.get(TemplateEngine)
 
         let
-            plate = engine.loadFile("tests/assets/testXmlTemplates.html")
+            plate = engine.loadFile("tests/assets/testTemplates.html")
 
         echo plate.render()
