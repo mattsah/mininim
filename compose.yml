@@ -1,0 +1,21 @@
+services:
+  caddy:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    restart: unless-stopped
+    command: ["sh", "/var/www/start.sh"]
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./:/var/www
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

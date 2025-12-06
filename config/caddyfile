@@ -1,0 +1,15 @@
+localhost {
+    root * ./public
+
+    @static {
+        file {
+            try_files {path}
+        }
+    }
+
+    handle @static {
+        file_server *
+    }
+
+    reverse_proxy localhost:31337
+}
