@@ -9,6 +9,6 @@ import
 --threadAnalysis:off
 
 # begin Nimble config (version 2)
-when withDir(thisDir(), os.fileExists("nimble.paths")):
-    include "nimble.paths"
+when withDir(thisDir(), system.fileExists("nimble.paths")):
+  include "nimble.paths"
 # end Nimble config
