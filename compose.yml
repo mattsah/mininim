@@ -4,15 +4,11 @@ services:
         context: .
         dockerfile: Dev.Dockerfile
     restart: unless-stopped
-    command: ["sh", "/var/www/start.sh"]
-    cap_add:
-      - NET_ADMIN
+    command: ["sh", "/srv/start.sh"]
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+      - "31337:80"
     volumes:
-      - ./:/var/www
+      - ./:/srv
       - caddy_data:/data
       - caddy_config:/config
 
