@@ -8,6 +8,12 @@ Mininim (like: minimum, but with "nim") is a general purpose framework for the N
 
 > **NOTE:** All code is currently alpha state and is not published through official package channels.  If you want to test Mininim or help development, see the [development section](#development)
 
+This project is part of the Primd application stack and is copyright Primd Cooperative, licensed MIT. Primd Cooperative is a worker-owned start-up aiming to revolutionize hiring, learning, and work itself. For more information, or to support our work:
+
+- See what we do: https://primd.app
+- Become a Patreon Member: https://patreon.com/primd
+- Star and Share this Repository
+
 ## Introduction
 
 Mininim works by defining classes and decorating them with what we call "**facets**."  One or more facets comprises the "**shape**" of the class and, in turn, augments its behaviors and features within your overall application.
@@ -269,9 +275,9 @@ nimble setup
 To work on related packages:
 
 ```
-nimble develop https://github.com/mattsah/mininim-core.git
-nimble develop https://github.com/mattsah/mininim-cli.git
-nimble develop https://github.com/mattsah/mininim-web.git
+nimble develop https://github.com/primd-cooperative/mininim-core.git
+nimble develop https://github.com/primd-cooperative/mininim-cli.git
+nimble develop https://github.com/primd-cooperative/mininim-web.git
 nimble develop
 ```
 
