@@ -1,4 +1,4 @@
-localhost {
+:80 {
     root * ./public
 
     @static {
