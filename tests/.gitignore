@@ -1,0 +1,6 @@
+*
+!*.nim
+!*.nims
+!assets/
+!assets/**
+!.gitignore
