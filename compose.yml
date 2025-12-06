@@ -2,7 +2,7 @@ services:
   caddy:
     build:
         context: .
-        dockerfile: Dockerfile
+        dockerfile: Dev.Dockerfile
     restart: unless-stopped
     command: ["sh", "/var/www/start.sh"]
     cap_add:
