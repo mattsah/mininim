@@ -1,7 +1,7 @@
 import
     mininim,
     mininim/dic,
-    mininim/xmltemplates,
+    mininim/templates,
     unittest
 
 suite "xml-templates":

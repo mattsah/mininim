@@ -1,7 +1,7 @@
 import
     mininim,
     mininim/web/router,
-    mininim/xmltemplates
+    mininim/templates
 
 type
     Home* = ref object of Action

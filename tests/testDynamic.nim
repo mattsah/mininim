@@ -184,11 +184,11 @@ suite "dynamic":
     test "can handle empty arrays and objects":
         let emptyArr = ~[]
         check(emptyArr.len == 0)
-        check(toBool(emptyArr) == false)
+        check(asBool(emptyArr) == false)
 
         let emptyObj = ~()
         check(emptyObj.len == 0)
-        check(toBool(emptyObj) == false)
+        check(asBool(emptyObj) == false)
 
         check(emptyArr + 5 == [5])
         check(emptyObj.has("any") == false)
