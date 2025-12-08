@@ -12,7 +12,7 @@ namedBin      = {"app": "app"}.toTable
 # Tasks
 
 task analyze, "Build the debug version with debug":
-    exec "nimble build --debugger:native --linetrace:on --stacktrace:on --checks:on --d:debug --verbose"
+    exec "nimble build --debugger:native --linetrace:on --stacktrace:on --checks:on --d:debug=${debug:-1} --verbose"
 
 task testing, "Build the testing version with no debug":
     exec "nimble build --linetrace:on --stacktrace:on --checks:on --verbose"
