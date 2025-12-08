@@ -1,0 +1,18 @@
+#
+# A test matcher that will break due to mapping count no matching captured count if you
+# visit /static/broken
+#
+[test1]
+
+    pattern = "(broken)"
+    mapping = [
+
+    ]
+
+#
+# A test matcher that will work because despite capturing one variable, no mapping is
+# defined.  Page will however return 404, as no `test2.html` file is found.
+#
+[test2]
+
+    pattern = "(nomap)"
