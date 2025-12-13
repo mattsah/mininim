@@ -265,42 +265,59 @@ You can indicate a procedure or method is abstract and should be implemented by 
 
 ## Testing and Development
 
-Clone this repo:
+[Atlas](https://github.com/nim-lang/atlas) is now the recommended (and only supported) way to install/work with mininim.  If you already have nimble and it's `bin` folder added to your path, the easiest way to install is:
+
+```
+git clone https://github.com/nim-lang/atlas.git
+cd atlas/
+nimble install
+```
+
+Once `atlas` is installed an in your path (check with `atlas -v`) you can go ahead and clone this repository:
 
 ```
 git clone https://github.com/mattsah/mininim
 cd mininim
 ```
 
-Install dependencies:
+### Install dependencies:
 
 ```
-nimble setup
+atlas install
 ```
 
-To work on related packages:
+### Building:
+
+You can build your application by simply running the following:
 
 ```
-nimble develop https://github.com/primd-cooperative/mininim-core.git
-nimble develop https://github.com/primd-cooperative/mininim-cli.git
-nimble develop https://github.com/primd-cooperative/mininim-web.git
-nimble develop
+nim build
 ```
 
-Build
+Alternatively you can pass the `--d:release` flag with the above to build a release version or, if you're trying to debug `--d:debug`, including with an optional level up to 3, e.g. `--d:debug=3`.
 
-```
-nimble testing
-```
+Once built, you can run the application.  To test the simple welcome command simply:
 
-Run
 ```
 bin/app welcome
 ```
 
-or Run
+If you want to test running the HTTP server you can run, keeping in mind it will not handle static files:
 
-```bash
+```
 bin/app serve
 ```
 
+If you want to handle static files, and have `docker` installed, you can do a simple:
+
+```
+docker compose up
+```
+
+### Testing:
+
+You can run tests with `testament` via:
+
+`nim test all`
+
+Alternatively, pass different `testament` compatible arguments or options to `nim test` which will carry them along.  All it really does by default is disable megatest and set the directory correctly.

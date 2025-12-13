@@ -11,6 +11,6 @@ suite "templates":
             engine = app.get(TemplateEngine)
 
         let
-            plate = engine.loadFile("tests/assets/testTemplates.html")
+            plate = engine.loadFile("assets/testTemplates.html")
 
         echo plate.render()
