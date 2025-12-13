@@ -38,9 +38,6 @@ task build, "Build the debug version with debug":
     else:
         build(@["--stacktrace:on", "--linetrace:on", "--checks:on"])
 
-task release, "Build the production version with optimization":
-    exec "nim -o:bin/app --opt:speed --d:release c app.nim"
-
 # begin Nimble config (version 2)
 when withDir(thisDir(), system.fileExists("nimble.paths")):
   include "nimble.paths"
