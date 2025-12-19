@@ -6,7 +6,7 @@ Mininim (like: minimum, but with "nim") is a general purpose framework for the N
 - Modularity and extensibility via a novel "plugin" approach.
 - Rapid development with terse, but readable, code
 
-> **NOTE:** All code is currently alpha state and is not published through official package channels.  If you want to test Mininim or help development, see the [development section](#development)
+> **NOTE:** All code is currently alpha state and is not published through official package channels.  If you want to test Mininim or help development, see the [development section](#testing-and-development)
 
 This project is part of the Primd application stack and is copyright Primd Cooperative, licensed MIT. Primd Cooperative is a worker-owned start-up aiming to revolutionize hiring, learning, and work itself. For more information, or to support our work:
 
@@ -265,46 +265,53 @@ You can indicate a procedure or method is abstract and should be implemented by 
 
 ## Testing and Development
 
-[Atlas](https://github.com/nim-lang/atlas) is now the recommended (and only supported) way to install/work with mininim.  If you already have nimble and it's `bin` folder added to your path, the easiest way to install is:
+The simplest way to get started with Mininim is using the [Percy](https://github.com/mattsah/percy) package manager.  Assuming:
 
-```
-git clone https://github.com/nim-lang/atlas.git
-cd atlas/
-nimble install
-```
+1. You already have nim and nimble installed
+2. You have a relatively recent version of git installed (with worktree support)
 
-Once `atlas` is installed an in your path (check with `atlas -v`) you can go ahead and clone this repository:
+Then the simplest way to install is as follows:
 
-```
-git clone https://github.com/mattsah/mininim
-cd mininim
+```bash
+nimble install https://github.com/mattsah/percy
+percy init -w cb://mininim/app <path>
 ```
 
-### Install dependencies:
-
-```
-atlas install
-```
+Replace `<path>` with the name of your application directory.
 
 ### Building:
 
-You can build your application by simply running the following:
+You can build your application by simply running the following in your application path:
 
-```
+```bash
 nim build
 ```
 
 Alternatively you can pass the `--d:release` flag with the above to build a release version or, if you're trying to debug `--d:debug`, including with an optional level up to 3, e.g. `--d:debug=3`.
 
-Once built, you can run the application.  To test the simple welcome command simply:
+Once built, you can run the application:
 
+```bash
+bin/app --help
 ```
+
+#### Using This Sample Application
+
+If you want to mess around with this sample application, you can simply replaced the app URL in the installation notes with this repository, e.g:
+
+```bash
+percy init -w gh://primd-cooperative/mininim <path>
+```
+
+Using this sample app, you can try to run the welcome command:
+
+```bash
 bin/app welcome
 ```
 
 If you want to test running the HTTP server you can run, keeping in mind it will not handle static files:
 
-```
+```bash
 bin/app serve
 ```
 
