@@ -8,8 +8,6 @@
 #
 
 author = "Matthew J. Sahagian"
-description = "A package manager for Nim"
-license = "MIT"
 binDir = "bin"
 
 requires "nim >= 2.2.6"
