@@ -7,7 +7,7 @@
 --mm:atomicArc # Still required or mummy blows up
 --deepcopy:on
 --verbosity:1
---path:"./local"
+--path:"local"
 
 # <percy>
 when withDir(thisDir(), system.fileExists("vendor/percy.paths")):
