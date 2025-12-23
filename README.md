@@ -274,7 +274,8 @@ Then the simplest way to install is as follows:
 
 ```bash
 nimble install https://github.com/mattsah/percy
-percy init cb://mininim/app [<path>]
+percy init cb://mininim/app app
+cd app
 ```
 
 Replace `<path>` with the name of your application directory.
