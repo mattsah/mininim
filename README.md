@@ -301,7 +301,9 @@ bin/app --help
 If you want to mess around with this sample application, you can simply replaced the app URL in the installation notes with this repository, e.g:
 
 ```bash
-percy init -w gh://primd-cooperative/mininim <path>
+percy init gh://primd-cooperative/mininim sample
+cd sample
+nim build
 ```
 
 Using this sample app, you can try to run the welcome command:
