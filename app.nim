@@ -10,7 +10,7 @@ import
 if os.fileExists(".env"):
     dotenv.load()
 
-loader.scan("./local")
+loader.scan(currentSourcePath().parentDir / "local")
 
 var
     app = App.init()
