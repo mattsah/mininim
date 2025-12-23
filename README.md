@@ -278,7 +278,7 @@ percy init cb://mininim/app app
 cd app
 ```
 
-Replace `<path>` with the name of your application directory.
+Replace `app` with the name of your application directory.
 
 ### Building:
 
