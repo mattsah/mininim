@@ -7,9 +7,9 @@ type
 
 begin Welcome:
     method execute*(console: Console): int =
-        let name = console.getArg("name", "Friend")
+        let name = console.getArg("name")
 
-        case console.getOpt("l", "language"):
+        case console.getOpt("language"):
             of "es":
                 echo fmt """Hola {name}!"""
             of "en":
@@ -26,13 +26,13 @@ shape Welcome: @[
         args: @[
             Arg(
                 name: "name",
-                require: false,
+                default: "Friend",
                 description: "The name of the person to say hello to"
             )
         ],
         opts: @[
             Opt(
-                flag: "l",
+                flag: 'l',
                 name: "language",
                 values: @["en", "es", "fr"],
                 default: "en",

@@ -274,7 +274,7 @@ Then the simplest way to install is as follows:
 
 ```bash
 nimble install https://github.com/mattsah/percy
-percy init -w cb://mininim/app <path>
+percy init cb://mininim/app [<path>]
 ```
 
 Replace `<path>` with the name of your application directory.
@@ -328,3 +328,24 @@ You can run tests with `testament` via:
 `nim test all`
 
 Alternatively, pass different `testament` compatible arguments or options to `nim test` which will carry them along.  All it really does by default is disable megatest and set the directory correctly.
+
+## Snippets
+
+### General Exception Handling
+
+```nim
+type
+    CustomException = ref object of Exception
+    	customMsg: string
+
+try:
+    raise CustomException(
+    	customMsg: "Unique to me!"
+    )
+except Exception as e:
+    fail "{e.msg}"
+
+    with e of CustomException:
+    	info "Specific: e.customMsg"
+```
+

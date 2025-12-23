@@ -15,6 +15,10 @@ when withDir(thisDir(), system.fileExists("vendor/percy.paths")):
 # </percy>
 
 # <percy>
+#
+# Build Task
+#
+
 import
     std/os,
     std/json,
@@ -27,9 +31,12 @@ import
 proc build(args: seq[string]): void =
     var
         cfg: JsonNode
-    let
-        (info, error) = gorgeEx("percy info -j")
-
+    when defined(windows):
+        let
+            (info, error) = gorgeEx("percy info -j 2>NUL")
+    else:
+        let
+            (info, error) = gorgeEx("percy info -j 2>/dev/null")
     if error > 0:
         cfg = parseJson("""{"bin": "", "srcDir": "", "binDir": ""}""")
     else:
@@ -56,11 +63,6 @@ proc build(args: seq[string]): void =
                 echo "Executing: " & cmd
                 exec cmd
 
-# Tasks
-
-task test, "Run testament tests":
-    exec "testament --megatest:off --directory:testing " & commandLineParams()[1..^1].join(" ")
-
 task build, "Build the application (whatever it's called)":
     when defined release:
         build(@["--opt:speed", "--linetrace:on", "--checks:on"])
@@ -68,4 +70,14 @@ task build, "Build the application (whatever it's called)":
         build(@["--debugger:native", "--stacktrace:on", "--linetrace:on", "--checks:on"])
     else:
         build(@["--stacktrace:on", "--linetrace:on", "--checks:on"])
+# </percy>
+
+# <percy>
+#
+# Test Task
+#
+
+task test, "Run testament tests":
+    exec "testament --megatest:off --directory:testing " & commandLineParams()[1..^1].join(" ")
+
 # </percy>
