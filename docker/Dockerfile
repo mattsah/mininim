@@ -6,6 +6,6 @@ COPY bin/ /srv/bin
 COPY config/ /srv/config
 COPY public/ /srv/public
 COPY resources/ /srv/resources
-COPY start.sh /srv/
+COPY docker/start.sh /srv/
 
 CMD ["sh", "/srv/start.sh"]
