@@ -63,7 +63,7 @@
     "repository": "https://github.com/NimParsers/parsetoml"
   },
   {
-    "id": "e564d033b8b784be80867d963aafd5b52d0ea1ab",
+    "id": "f080d2a623befc9e1f9ab72faf2d1a50d03f9a8b",
     "info": {
       "name": "",
       "version": "0.0.0",
@@ -160,35 +160,6 @@
       "metadata": ""
     },
     "repository": "https://github.com/treeform/webby"
-  },
-  {
-    "id": "ab00c56904e3126ad826bb520d243513a139436a",
-    "info": {
-      "name": "",
-      "version": "",
-      "author": "Andreas Rumpf",
-      "description": "Nim package providing the compiler binary",
-      "license": "MIT",
-      "backend": "",
-      "paths": [],
-      "requires": [],
-      "bin": [
-        "compiler/nim",
-        "nimsuggest/nimsuggest"
-      ],
-      "binDir": "",
-      "srcDir": "",
-      "namedBin": {},
-      "features": {}
-    },
-    "version": {
-      "major": 2,
-      "minor": 2,
-      "patch": 6,
-      "build": "",
-      "metadata": ""
-    },
-    "repository": "https://github.com/nim-lang/Nim"
   },
   {
     "id": "f8f6bd34bfa3fe12c64b919059ad856a96efcba0",
