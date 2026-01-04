@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(dirname "$0")
 
-cd $SCRIPT_DIR
+cd /srv
 trap 'kill -- -$$' INT
 bin/app serve &
 caddy run --config config/caddyfile --adapter caddyfile &
